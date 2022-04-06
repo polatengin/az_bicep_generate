@@ -14,6 +14,11 @@ function az() {
         FILE_NAME="${6}"
       fi
 
+      # if extension is not provided, use the `.bicep` extension
+      if [[ ${FILE_NAME} != *".bicep" ]]; then
+        FILE_NAME="${FILE_NAME}.bicep"
+      fi
+
     # if required arguments are not present, print the usage message
     else
       echo "Usage: az bicep generate --resource-group <resource-group-name> [--output-file <file-name>]";
