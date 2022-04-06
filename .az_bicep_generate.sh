@@ -27,6 +27,9 @@ function az() {
 
       # remove the temp file
       rm -f "/tmp/${4}.json"
+
+      # move the bicep file to the desired location
+      mv "/tmp/${4}.bicep" "./${FILE_NAME}"
     # if required arguments are not present, print the usage message
     else
       echo "Usage: az bicep generate --resource-group <resource-group-name> [--output-file <file-name>]";
