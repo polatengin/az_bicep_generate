@@ -1,2 +1,4 @@
-# az_bicep_import
-add bicep import sub-command to azure cli (az) tool
+# az_bicep_generate
+
+add bicep generate sub-command to azure cli (az) tool
+
