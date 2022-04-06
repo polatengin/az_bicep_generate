@@ -24,6 +24,9 @@ function az() {
 
       # generate the bicep file from the temp file
       az bicep decompile --file "/tmp/${4}.json"
+
+      # remove the temp file
+      rm -f "/tmp/${4}.json"
     # if required arguments are not present, print the usage message
     else
       echo "Usage: az bicep generate --resource-group <resource-group-name> [--output-file <file-name>]";
