@@ -6,6 +6,14 @@ function az() {
     # if required arguments are present, execute the command
     if [[ ${3} == "--resource-group" || ${3} == "-n" ]]; then
 
+      # default filename is the resource group name
+      local FILE_NAME="${4}"
+
+      # if the filename is not provided, use the given name
+      if [[ ${5} == "--output-file" || ${5} == "-f" ]]; then
+        FILE_NAME="${6}"
+      fi
+
     # if required arguments are not present, print the usage message
     else
       echo "Usage: az bicep generate --resource-group <resource-group-name> [--output-file <file-name>]";
