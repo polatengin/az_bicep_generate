@@ -27,3 +27,7 @@ If `--output-file` argument is not specified, the `bicep` file will be generated
 ```bash
 az bicep generate --resource-group-name rg-test
 ```
+
+Will generate _rg-test.bicep_ file in the current directory.
+
+If `--resource-group-name` argument is not specified, usage message will be displayed on the terminal.
