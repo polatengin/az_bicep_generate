@@ -21,3 +21,9 @@ To generate a `bicep` file from the existing Azure Resource Group, run the follo
 ```bash
 az bicep generate --resource-group-name <resource-group-name> --output-file <output-file>
 ```
+
+If `--output-file` argument is not specified, the `bicep` file will be generated with the Resource Group name, for example:
+
+```bash
+az bicep generate --resource-group-name rg-test
+```
