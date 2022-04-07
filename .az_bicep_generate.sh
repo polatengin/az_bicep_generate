@@ -1,5 +1,19 @@
 # to extend a command, start with a function that has the same name as the command
 function az() {
+  if [[ ${1} == "bicep" && ${2} == "--help" ]]; then
+    # get output of `az bicep --help` command
+    local output=$(command az bicep --help)
+
+    # command description that will added to `--help` text
+    local _command_usage="Commands:\n    generate      : Generate bicep file from te existing Resource Group."
+
+    # replace `Commands:` with `Commands:` and command description
+    echo -e "${output/Commands:/${_command_usage}}"
+
+    # return from the function
+    return 0
+  fi
+
   # check only for the arguments that we want to extend
   if [[ ${1} == "bicep" && ${2} == "generate" ]]; then
 
@@ -34,8 +48,11 @@ function az() {
     else
       echo "Usage: az bicep generate --resource-group <resource-group-name> [--output-file <file-name>]";
     fi
-  # if the command is not the one we want to extend, pass all the arguments to the command
-  else
-    command az "$@"
+    
+    # return from the function
+    return 0
   fi
+
+  # if the command is not the one we want to extend, pass all the arguments to the command
+  command az "$@"
 }
